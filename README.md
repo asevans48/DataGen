@@ -59,7 +59,7 @@ def gen_list(range):
   for i in range:
   	yield i
   	
-my_list = gen_list(range(0,10))
+my_list = list(gen_list(range(0,10)))
 json_data = {'table' : {'col' : {'choises' : my_list}}}  	
 
 ```
