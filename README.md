@@ -46,7 +46,7 @@ gen_data(dict,opts,dao)
 The dictionary used to generate data does not need to come from a DDL dump. It may be specified as follows:
 
 ```
- {'table' : {'cols':[{'col' : 'type'},....]}}
+ {'table' : {'cols':[{'name' : 'col_name' : 'type' : 'varchar(512)'},....]}}
 ```
 
 It is recommended that tables be generated from DDL directly as it is database specific and more extensive. PGModeler, Oracle Database Designer, and other tools are available to help generate DDL.
@@ -62,7 +62,7 @@ def gen_list(range):
   	yield i
   	
 my_list = list(gen_list(range(0,10)))
-json_data = {'table' : {'col' : {'choises' : my_list}}}  	
+json_data = {'table' : {'col' : {'choices' : my_list}}}  	
 
 ```
 
