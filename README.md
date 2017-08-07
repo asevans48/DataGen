@@ -13,7 +13,7 @@ DataGen should not be used for academic test cases where data needs to be a repr
 
 Simply import 
 
-`
+```
 
 from datgen.utils import *
 from datagen.dao import PostgreDAO
@@ -23,7 +23,7 @@ dao = new PostgreDAO('db','user','pass')
 dict = pg_sql_file_to_dict('sql_file_path')
 gen_data(dict,opts,dao)
 
-`
+```
 
 An example of options that will be specfied will follow shortly once a standard is laid out and implemented.
 
