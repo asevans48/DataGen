@@ -62,10 +62,16 @@ def gen_list(range):
   	yield i
   	
 my_list = list(gen_list(range(0,10)))
-json_data = {'table' : {'col' : {'choices' : my_list}}}  	
+json_data = {'table' : {'col_name' : {'choices' : my_list}}}  	
 
 ```
+It is also possible to specify weights for the choices to be made, limiting the need for repeating code:
 
+```
+weights = [.2,.3,.5]
+json_data = {'table' : {'col_name' : {'choices': my_list, 'weights': weights}}}
+```
+The size of the weights provided must equal the size of the list presented.
 
 ### Persisting Configuration
 

@@ -9,6 +9,16 @@ import psycopg2 as pg
 import re
 import random
 
+def random_weighted_choice(data,weights):
+    total = sum(weights)
+    d = random.uniform(0,total)
+    sum = 0
+    idx = 0
+    while sum < d:
+        sum += weights[idx]
+        idx += 1
+    return data[idx]    
+
 '''
 Convert PostgreSQL .sql files to a list of dictionaries.
 
