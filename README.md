@@ -27,6 +27,8 @@ Other examples of useful data includes handling abnormal cases such as SKUs that
  
 ### Example 
 
+Data is generated from lists at using a randomized choice. 
+
 DataGen may be used as follows:
 
 ```
