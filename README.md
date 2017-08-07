@@ -1,6 +1,6 @@
 ## DataGen
 
-This tool creates fake data based on SQL scripts and specified options. It is meant to make the task of fake data generation for test cases and software creation much simpler. Data generators are created that may be used to randomize data generation within acceptable parameters and persist data generation
+This tool creates fake data based on SQL scripts from specific database design tools or specified configuration options in addition to specified options. It is meant to make the task of fake data generation for test cases and software creation much simpler. Data generators are created that may be used to randomize data generation within acceptable parameters and persist data generation
 rules. The tool is meant to help improve software quality by allowing developers and quality control specialists to focus on the data used in test.
 
 The tool is in its infancy so is mainly a simmple aid at the mount. Data generation tools will grow as the tool evolves.
