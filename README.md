@@ -1,4 +1,4 @@
-##DataGen##
+## DataGen
 
 This tool creates fake data based on sql scripts and specified options. It is meant to make the task of fake data generation for test cases and software creation much simpler.
 
@@ -9,7 +9,7 @@ Currently DataGen:
  
 DataGen should not be used for academic test cases where data needs to be a representative subset of a universe.
  
-###Example### 
+### Example 
 
 Simply import 
 
@@ -26,7 +26,7 @@ gen_data(dict,opts,dao)
 
 An example of options that will be specfied will follow shortly once a standard is laid out and implemented.
 
-###License###
+### License
 
 Copyright 2017 Andrew Evans
 
