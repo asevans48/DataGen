@@ -34,16 +34,38 @@ Convert PostgreSQL .sql files to a list of dictionaries.
 @param sql_file_path:  The pat to the sql file generated from pgmodeler
 @return: The list of dictionaries
 '''
-def pg_sql_file_to_dict(sql_file_path):
+def pgmodeler_sql_file_to_dict(sql_file_path):
+    tables = []
     sql = None
     with open(sql_file_path, 'r') as fp:
         sql = fp.read()
+   
     pattern = re.compile("(?mis)CREATE\s+TABLE\s.*?[\-]+\s+ddl.end\s+[\-]+")
     matches = pattern.findall(sql)
     if matches is not None:
         for match in matches:
-            pass
-    
+            #pre tables
+            txt = re.sub('(?mis)USING INDEX TABLESPACE.*|TABLESPACE.*|[\-]+\s+ddl.*','',match)
+            
+            #prepare columns
+            table = None
+            col_txt = None
+            cols = None
+            key_types = None
+            tparts = re.search('(?mis)CREATE\s+TABLE\s+(.+?)?\((.+)',txt)
+            if tparts is not None:
+                table = tparts.group(1)
+                col_txt = tparts.group(2)
+            
+            if table is not None and col_txt is not None:
+                cols = col_txt.split(",")
+                key_types = [re.split("\s+",x.strip())[:2] for x in cols if "PRIMARY KEY" not in x]
+                cols = [{'name' : x[0], 'type' :  x[1]} for x in key_types if len(x) is 2]
+                tables.append({table : {'cols' : cols}})
+                
+    return tables            
+                
+                
     
         
 '''
@@ -54,8 +76,4 @@ Generate fake data using the list of dictionaries, supplied options, and a data 
 @param dao: The data access object
 '''
 def gen_data(dict, opts,dao):
-    pass
-
-
-if __name__ == "__main__":
     pass

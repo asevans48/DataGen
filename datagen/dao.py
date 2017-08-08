@@ -14,7 +14,7 @@ Created on Aug 7, 2017
 import psycopg2 as pg
 
 
-class PostreDAO:
+class PostgreDAO:
     
     conn = None
         
